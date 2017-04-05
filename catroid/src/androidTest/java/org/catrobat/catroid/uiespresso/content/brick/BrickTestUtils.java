@@ -204,4 +204,13 @@ public final class BrickTestUtils {
 		onScriptList().atPosition(position).onChildView(withId(editTextResourceId))
 				.check(matches(withText("'" + stringToBeEntered + "' ")));
 	}
+
+	public static void deleteBrickAtPosition(int position) {
+		onScriptList().atPosition(position)
+				.perform(click());
+		onView(withText(R.string.brick_context_dialog_delete_brick))
+				.perform(click());
+		onView((withId(android.R.id.button1)))
+				.perform(click());
+	}
 }
